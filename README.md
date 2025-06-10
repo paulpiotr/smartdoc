@@ -1,2 +1,1 @@
-# smartdoc
-AI Smart Doc
+# AI Smart Doc
