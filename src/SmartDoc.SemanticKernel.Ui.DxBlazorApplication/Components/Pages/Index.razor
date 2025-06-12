@@ -1,0 +1,38 @@
+﻿@page "/"
+@using SmartDoc.SemanticKernel.Ui.DxBlazorApplication.Services
+<PageTitle>Welcome</PageTitle>
+
+<div class="main-content">
+    <DxGridLayout CssClass="welcome-gridlayout" RowSpacing="3rem">
+        <Rows>
+            <DxGridLayoutRow Height="auto" Areas="header"></DxGridLayoutRow>
+            <DxGridLayoutRow Height="auto" Areas="cards"></DxGridLayoutRow>
+        </Rows>
+        <Items>
+            <DxGridLayoutItem Area="header" CssClass="title">
+                <Template>
+                    <div class="title-header-text">Hello World!</div>
+                    <div class="title-content-text">Welcome to your new DevExpress Blazor Application</div>
+                </Template>
+            </DxGridLayoutItem>
+            <DxGridLayoutItem Area="cards" CssClass="welcome-cards">
+                <Template>
+                    <NavLink class="welcome-card" href="@UrlGenerator.GetUrl("/chat", ToggledSidebar)">
+                        <svg class="welcome-card-img" alt="chat card">
+                            <use href="images/cards.svg#chat"></use>
+                        </svg>
+                        <div class="welcome-card-text">Chat</div>
+                        <div class="welcome-card-back"></div>
+                    </NavLink>
+                </Template>
+            </DxGridLayoutItem>
+        </Items>
+    </DxGridLayout>
+</div>
+
+@code {
+
+    [SupplyParameterFromQuery(Name = UrlGenerator.ToggleSidebarName)]
+    public bool ToggledSidebar { get; set; }
+
+}

@@ -1,0 +1,20 @@
+﻿@page "/markdown"
+@using DevExpress.AIIntegration.Blazor.Chat
+@using Markdig
+
+<DxAIChat CssClass="my-chat" ResponseContentFormat="ResponseContentFormat.Markdown">
+    <MessageContentTemplate>
+        <div class="my-chat-content">
+            @ToHtml(context.Content)
+        </div>
+    </MessageContentTemplate>
+</DxAIChat>
+
+@code {
+
+    MarkupString ToHtml(string text)
+    {
+        return (MarkupString)Markdown.ToHtml(text);
+    }
+
+}

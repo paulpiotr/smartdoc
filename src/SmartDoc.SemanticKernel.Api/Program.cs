@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Polly;
 using Polly.Extensions.Http;
+using SmartDoc.SemanticKernel.Client.OpenAi;
 using SmartDoc.SemanticKernel.Core.Interfaces;
 
 #endregion

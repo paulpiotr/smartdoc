@@ -1,0 +1,43 @@
+﻿@page "/custommessage"
+@using DevExpress.AIIntegration.Blazor.Chat
+
+<DxAIChat CssClass="my-chat">
+    <MessageTemplate>
+        <div class="@GetMessageClasses(context)">
+            @if (context.Typing)
+            {
+                <span>Loading...</span>
+            }
+            else
+            {
+                <div class="my-chat-content">
+                    @context.Content
+                </div>
+            }
+        </div>
+    </MessageTemplate>
+</DxAIChat>
+
+@code {
+
+    string GetMessageClasses(BlazorChatMessage message)
+    {
+        if (message.Role == ChatMessageRole.Assistant)
+        {
+            return "my-chat-message my-assistant-message";
+        }
+
+        if (message.Role == ChatMessageRole.User)
+        {
+            return "my-chat-message my-user-message";
+        }
+
+        if (message.Role == ChatMessageRole.Error)
+        {
+            return "my-chat-message my-error-message";
+        }
+
+        return "my-chat-message";
+    }
+
+}

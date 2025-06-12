@@ -1,6 +1,6 @@
-﻿using SmartDoc.SemanticKernel.Ingestion.OpenAi;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using SmartDoc.SemanticKernel.Client.OpenAi;
 
 namespace SmartDoc.SemanticKernel.Api.Controllers;
 

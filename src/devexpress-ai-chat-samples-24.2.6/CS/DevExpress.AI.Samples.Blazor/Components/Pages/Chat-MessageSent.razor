@@ -1,0 +1,14 @@
+﻿@page "/messagesent"
+@using DevExpress.AIIntegration.Blazor.Chat
+@using Microsoft.Extensions.AI
+
+<DxAIChat CssClass="my-chat" MessageSent="MessageSent"/>
+
+@code {
+
+    async Task MessageSent(MessageSentEventArgs args)
+    {
+        await args.Chat.SendMessage($"Processed: {args.Content}", ChatRole.Assistant);
+    }
+
+}
